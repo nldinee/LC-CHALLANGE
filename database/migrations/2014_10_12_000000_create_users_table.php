@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->decimal('balance', 10, 2)->default(0.0);
+            $table->string('currency')->default('INR');
+            $table->boolean('agreed_to_terms')->default(false);
             $table->timestamps();
         });
     }
