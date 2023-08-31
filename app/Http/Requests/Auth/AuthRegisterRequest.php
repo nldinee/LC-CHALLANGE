@@ -27,7 +27,7 @@ class AuthRegisterRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', Rules\Password::defaults()],
-            'agreed_to_terms' => ['accepted']
+            'agreed_to_terms' => ['accepted', 'boolean']
         ];
     }
 

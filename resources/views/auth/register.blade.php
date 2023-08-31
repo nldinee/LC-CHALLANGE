@@ -39,7 +39,7 @@
                     
                     <div class="mb-3">
                         <label class="form-check">
-                            <input class="form-check-input" name='agreed_to_terms' type="checkbox">
+                            <input class="form-check-input" name='agreed_to_terms' type="checkbox" value='1'>
                             <span class="form-check-label"> Agree the <a href='{{ route('legal') }}'>terms and policy</a> </span>
                         </label>
                     </div>
