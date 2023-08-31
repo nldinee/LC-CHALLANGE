@@ -9,6 +9,7 @@ use Illuminate\Validation\ValidationException;
 use App\Http\Requests\Auth\AuthLoginRequest;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
 
 
 class AuthController extends Controller
@@ -29,12 +30,19 @@ class AuthController extends Controller
     public function store(AuthLoginRequest $request): RedirectResponse
     {
 
+        if (! Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
+        }
+
+        return redirect(RouteServiceProvider::HOME);
     }
 
 
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        Auth::logout();
 
         $request->session()->invalidate();
 
