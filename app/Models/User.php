@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'agreed_to_terms'
+        'agreed_to_terms',
+        'balance'
     ];
 
     /**
@@ -33,6 +34,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+    public function transaction() {
+        return $this->hasMany(Transaction::class, 'user_id');
+    }
 
     /**
      * The attributes that should be cast.

@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DepositController;
+use App\Http\Controllers\WithdrawController;
+use App\Http\Controllers\TransferController;
+use App\Http\Controllers\StatementController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +34,19 @@ Route::middleware('auth')->group(function () {
 
 
     // Main application routes
-    Route::get('/home', function () {
-        return view('welcome');
-    });
+    Route::get('/home', function () {return view('home');})->name('home');
+    Route::get('/deposit', [DepositController::class, 'create'])->name('deposit');
+    Route::post('/deposit', [DepositController::class, 'store']);
+
+    Route::get('/withdraw', [WithdrawController::class, 'create'])->name('withdraw');
+    Route::post('/withdraw', [WithdrawController::class, 'store']);
+
+
+    Route::get('/transfer', [TransferController::class, 'create'])->name('transfer');
+    Route::post('/transfer', [TransferController::class, 'store']);
+
+
+    Route::get('/statement', [StatementController::class, 'view'])->name('statement');
 });
 
 
@@ -46,7 +62,7 @@ Route::middleware('guest')->group(function () {
 
     // Addtional pages
     Route::get('legal', function() {
-        return 'Terms and conditions';
+        return view('legal');
     })->name('legal');
 
     

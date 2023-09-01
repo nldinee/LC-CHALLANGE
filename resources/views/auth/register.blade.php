@@ -2,7 +2,7 @@
  
 <x-login>
     
-    <div class='container container-tight py-4'>
+    <div class='container py-4'>
 
         <div class='text-center mb-4'>
             <h1 class='h1'>ABC BANK</h2>

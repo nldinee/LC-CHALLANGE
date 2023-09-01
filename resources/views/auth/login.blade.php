@@ -1,6 +1,6 @@
  <x-login>
     
-    <div class='container container-tight py-4'>
+    <div class='container py-4'>
 
         <div class='text-center mb-4'>
             <h1 class='h1'>ABC BANK</h2>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="text" class="form-control" name="password" placeholder="Enter password" />
+                        <input type="password" class="form-control" name="password" placeholder="Enter password" />
                     </div>
                     
                     <div class="mb-3">
